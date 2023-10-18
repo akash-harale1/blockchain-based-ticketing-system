@@ -54,11 +54,6 @@ EventOrganizerSchema.methods.generateToken= async function() {
    {
         res.send(e);
    }
-    
-
-
-
-
 }
 
 
