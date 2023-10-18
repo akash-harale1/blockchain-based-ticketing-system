@@ -1,8 +1,29 @@
 const express = require("express");
 const EventOragnizer = require("../schema/EventOrganizer");
 const bcrypt = require("bcrypt");
+const Authentication=require("../middleware/middleware") ;;
 
 const router=new express.Router();
+router.get("/EventOrganizer",Authentication,async(req,res)=>{
+  try{
+    console.log(req.decode._id);
+    const dbdata= await EventOragnizer.findOne({_id:req.decode._id},{Name:1,
+    Email:1,
+    Insta:1,
+    Facebook:1,
+    Twitter:1,
+    Description:1,
+    _id:0
+    });
+
+    res.send(dbdata);
+  }
+  catch(e)
+  {
+    res.status(400).send(e);
+  }
+ 
+});
 router.post("/sign_up", async (req, res) => {
   try {
     const eo = new EventOragnizer(req.body);
