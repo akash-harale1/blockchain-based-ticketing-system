@@ -57,6 +57,10 @@ const EventSchema =new mongoose.Schema({
     TotalCollection:{
         type:Number,
         requried:true
+    },
+    IpfsLink:{
+        type:String,
+        required:true,
     }
 
 
