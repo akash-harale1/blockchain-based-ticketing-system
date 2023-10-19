@@ -20,6 +20,19 @@ router.get("/Event",async(req,res)=>{
 
 })
 
+router.put("/reduce_ticket_count",async(req,res)=>{
+  try
+  {
+    const event_data=await Events.updateOne({EventId:req.body.EventId,Available:{$gt:0}},{$inc:{Available:-1}});
+    res.send(event_data);
+  }
+  catch(e)
+  {
+    res.send(e);
+  }
+
+})
+
 router.post("/Event",Authentication,async(req,res)=>{
     try
     {
