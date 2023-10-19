@@ -7,8 +7,9 @@ const skey="thisprojectisbasedonnftticketgenerationsystem";
 const EventSchema =new mongoose.Schema({
     EventId:{
         type:String,
-        required:true,
-        unique:true
+        unique:true,
+        required:true
+        
     },
     Email:{
         type:String,
@@ -48,7 +49,7 @@ const EventSchema =new mongoose.Schema({
     },
     Available: {
         type:Number,
-        requried:true
+        required:true
     },
     OrgnizerName:{
         type:String,
@@ -56,7 +57,7 @@ const EventSchema =new mongoose.Schema({
     },
     TotalCollection:{
         type:Number,
-        requried:true
+        required:true
     },
     IpfsLink:{
         type:String,
