@@ -6,9 +6,25 @@ const {v1,v4}=require('uuid');
 const router=new express.Router();
 
 
+
+router.get("/Event_details",Authentication,async(req,res)=>{
+  try{
+    const dbdata= await EventOragnizer.findOne({_id:req.decode._id});
+    const event_data=await Events.find({Email:dbdata.Email});
+  
+    res.send(event_data);
+  }
+  catch(e)
+  {
+    res.status(400).send(e);
+  }
+
+
+})
+
 router.get("/Event",async(req,res)=>{
   try{
-
+   
     const event_data=await Events.find();
     res.send(event_data);
   }
